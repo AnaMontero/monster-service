@@ -24,7 +24,7 @@ public class MonsterServiceImpl implements MonsterService {
     @Override
     public void create(Monster monster) {
         monsters.add(monster);
-        log.createInfoLevel(true, String.format("Created monster with id: %s}", monster.getId()));
+        log.createInfoLevel(false, String.format("Created monster with id: %s}", monster.getId()));
     }
 
     @Override

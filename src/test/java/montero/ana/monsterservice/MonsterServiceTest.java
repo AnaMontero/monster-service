@@ -29,12 +29,12 @@ class MonsterServiceTest {
 
     @Test
     void should_return_one_monster_when_new_monster_is_created() {
-        monsterService.create(new Monster(1L, "Edward", "Vampire"));
+        monsterService.create(new Monster(1L, "Michael", "Zombie"));
 
         var actual = monsterService.getAll();
 
         Assertions.assertEquals(1, actual.size());
-        Assertions.assertEquals("Edward", actual.get(0).getName());
+        Assertions.assertEquals("Michael", actual.get(0).getName());
     }
 
     @Test
@@ -44,5 +44,12 @@ class MonsterServiceTest {
         var monsterFound = monsterService.getById(10L);
 
         Assertions.assertEquals("Buffy", monsterFound.getName());
+    }
+
+    @Test
+    void should_return_exception_when_incorrect_id_is_entered() {
+        monsters.add(new Monster(3L, "Spyro", "Dragon"));
+
+        Assertions.assertThrows(RuntimeException.class, () -> monsterService.getById(9L));
     }
 }
