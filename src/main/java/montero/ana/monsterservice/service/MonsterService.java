@@ -7,4 +7,5 @@ import java.util.List;
 public interface MonsterService {
     List<Monster> getAll();
     void create(Monster monster);
+    Monster getById(Long id);
 }
